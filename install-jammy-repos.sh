@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "adding sources"
+echo "making a backup..."
+cp /etc/apt/sources.list.d/ubuntu.sources /etc/apt/sources.list.d/ubuntu.sources.bak
+echo "adding sources..."
 echo "
 Types: deb
 URIs: http://ubuntu.uni-klu.ac.at/ubuntu/
