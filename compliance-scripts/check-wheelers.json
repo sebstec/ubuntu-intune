@@ -1,0 +1,23 @@
+{
+	"Rules":[ 
+		{ 
+		   "SettingName":"wheelusers",
+		   "Operator":"IsEquals",
+		   "DataType":"Int64",
+		   "Operand":"0",
+		   "MoreInfoUrl":"https://google.com",
+		   "RemediationStrings":[ 
+			  { 
+				 "Language":"en_US",
+				 "Title":"There can't be active processes of users in a wheel group!",
+				 "Description": "Log out users of wheel group"
+			  },
+			  {
+				 "Language":"de_DE",
+				 "Title":"Es darf keine aktiven Prozesse von Nutzern aus der wheel Gruppe geben!",
+				 "Description": "Logge Nutzer aus der wheel Gruppe aus!"
+			  }
+		   ]
+		} 
+	]
+}
