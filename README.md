@@ -2,7 +2,7 @@
 ## installation
 run: 
 
-`wget https://raw.githubusercontent.com/sebstec/ubuntu-intune/refs/heads/master/install.sh && chmod 755 ./install.sh && sudo ./install.sh`
+`wget https://raw.githubusercontent.com/sebstec/ubuntu-intune/refs/heads/master/install.sh && chmod 755 ./install.sh && ./install.sh`
 
 and then reboot your system
 
