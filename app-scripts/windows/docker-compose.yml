@@ -29,5 +29,8 @@ services:
     stop_grace_period: 2m
     restart: on-failure 
     volumes:
+      - data:/storage # Mount volume 'data' to use as Windows 'C:' drive.
       - ${HOME}:/shared # Mount Linux user home directory @ '\\host.lan\Data'.
       - ./oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.
+volumes:
+  data:

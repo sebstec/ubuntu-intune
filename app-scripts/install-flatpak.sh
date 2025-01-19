@@ -17,8 +17,8 @@ apt-get update
 if [ "$(dpkg -l | awk '/flatpak/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
 else
-  apt install flatpak
-  apt install gnome-software-plugin-flatpak
+  apt install -y flatpak
+  apt install -y gnome-software-plugin-flatpak
   flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   echo "$app successfully installed" >> $log
 fi
