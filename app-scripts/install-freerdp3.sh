@@ -17,7 +17,9 @@ apt-get update
 if [ "$(dpkg -l | awk '/xfreerdp/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
 else
+  # only one of them needed
   flatpak install -y com.freerdp.FreeRDP
+  apt install -y freerdp3-x11
   echo "$app successfully installed" >> $log
 fi
 echo -e "bye-from-intune\n" >> $log

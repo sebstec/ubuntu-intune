@@ -21,3 +21,6 @@ replace USER, PASSWORD and IP in following prompt
 and enjoy integration via rdp (some windows settings might be necessary - see files in app-scripts/windows/oem)
 
 ### note: if the home drive is already mounted via docker/qemu or some other way, the home-drive sharing via rdp is not necessary
+
+## for mde
+`https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md`
