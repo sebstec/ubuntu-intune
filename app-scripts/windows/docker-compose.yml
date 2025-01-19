@@ -1,0 +1,33 @@
+# For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
+
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "11"
+      RAM_SIZE: "4G" 
+      CPU_CORES: "4" 
+      DISK_SIZE: "64G"
+      USERNAME: "bill" 
+      PASSWORD: "gates"
+      HOME: "${HOME}" 
+      LANGUAGE: "English"
+      REGION: "en-US"
+      KEYBOARD: "en-US"
+      #ARGUMENTS: "-device usb-host,vendorid=0x1234,productid=0x1234" #USB device pass-through (webcam)
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
+      #- /dev/bus/usb #USB device pass-through
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    stop_grace_period: 2m
+    restart: on-failure 
+    volumes:
+      - ${HOME}:/shared # Mount Linux user home directory @ '\\host.lan\Data'.
+      - ./oem:/oem # Enables automatic post-install execution of 'oem/install.bat', applying Windows registry modifications contained within 'oem/RDPApps.reg'.

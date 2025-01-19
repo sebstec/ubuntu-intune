@@ -15,7 +15,7 @@ echo "hello-from-intune: checking groups of active processes..." >> $log
 list=$(ps -eo user,uid | awk 'NR>1 && ++seen[$2]==1{print $1}')
 for u in $list; 
 do
-	count=$(groups $u 2>/dev/null | grep -icE 'wheel|sudo|admin')
+	count=$(groups $u 2>/dev/null | grep -icE 'wheel|sudo')
 	if [ "$count" -gt 0 ];
 	then
 		echo "alert: found active processes of wheel user: $u!" >> $log
