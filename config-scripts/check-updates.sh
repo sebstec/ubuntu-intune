@@ -14,4 +14,6 @@ echo $(date -Iseconds) >> $log
 echo "hello-from-intune: $script" >> $log
 apt-get update 
 echo "upgradeable packages: $(apt list --upgradeable 2>/dev/null | grep -c .)" >> $log
+apt-get upgrade
+echo "packages upgraded!" >> $log
 echo -e "bye-from-intune\n" >> $log

@@ -18,6 +18,6 @@ replace USER, PASSWORD and IP in following prompt
 `xfreerdp /cert:tofu /sound /microphone /d: /u:USER /p:PASSWORD /scale:100 +dynamic-resolution +auto-reconnect +home-drive +clipboard -wallpaper +span '/wm-class:Microsoft Explorer' '/app:program:C:\Windows\explorer.exe,name:Microsoft Explorer' /v:IP
 `
 
-and enjoy integration via rdp (some windows settings might be necessary - see .reg file)
+and enjoy integration via rdp (some windows settings might be necessary - see files in app-scripts/windows/oem)
 
 ### note: if the home drive is already mounted via docker/qemu or some other way, the home-drive sharing via rdp is not necessary
