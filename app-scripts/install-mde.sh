@@ -17,6 +17,8 @@ apt-get update
 if [ "$(dpkg -l | awk '/mdatp/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
 else
+  mkdir -p /home/$(id -u -n 1000)/mde
+  cd /home/$(id -u -n 1000)/mde
   wget https://raw.githubusercontent.com/microsoft/mdatp-xplat/refs/heads/master/linux/installation/mde_installer.sh
   chmod 755 ./mde_installer.sh
   if [ "$(ls | grep -ic 'MicrosoftDefenderATPOnboardingLinuxServer.py')" -le 0 ]; then
