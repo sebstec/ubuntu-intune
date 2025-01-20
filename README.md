@@ -23,4 +23,7 @@ and enjoy integration via rdp (some windows settings might be necessary - see fi
 ### note: if the home drive is already mounted via docker/qemu or some other way, the home-drive sharing via rdp is not necessary
 
 ## for mde
+see:
 `https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md`
+
+
