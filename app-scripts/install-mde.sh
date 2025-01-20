@@ -5,4 +5,3 @@ read -p 'put the onboarding python script downloaded from ms defender portal to 
 ./mde_installer.sh --install --channel prod --onboard ./MicrosoftDefenderATPOnboardingLinuxServer.py --tag GROUP Coders --min_req -y
 mdatp config real-time-protection --value enabled
 mdatp health --field real_time_protection_enabled
-curl -o ~/Downloads/eicar.com.txt https://www.eicar.org/download/eicar.com.txt
