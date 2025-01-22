@@ -4,6 +4,8 @@ to initially install intune-portal, run:
 
 `wget https://raw.githubusercontent.com/sebstec/ubuntu-intune/refs/heads/master/install.sh && chmod 755 ./install.sh && ./install.sh`
 
+### INFO: beware, this also modifies polkit rules! (see install-intune/setup-polkit-rules.sh)
+
 and then reboot your system
 
 this will clone the repository to your pwd and install intune-portal

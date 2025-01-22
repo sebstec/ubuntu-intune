@@ -7,3 +7,4 @@ echo "cloning repo..."
 git clone https://github.com/sebstec/ubuntu-intune.git
 cd ./ubuntu-intune/install-intune
 sudo ./install-intune-portal.sh
+sudo ./setup-polkit-rules.sh
