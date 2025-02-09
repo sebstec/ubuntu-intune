@@ -23,7 +23,7 @@ go to scripts => add:
 
 ![](./images/scriptsadd.png)
 
-add all scripts from app-scripts/ (excluding the user-mode/ and windows/ directories and content), like so:
+add needed scripts from app-scripts/ (excluding the user-mode/ and windows/ directories and content), like so:
 
 ![](./images/setupdocker1.png)
 
@@ -32,6 +32,8 @@ add all scripts from app-scripts/ (excluding the user-mode/ and windows/ directo
 dont forget to assign to a group:
 
 ![](./images/setupdocker3.png)
+
+### note: docker installation will install rootless docker
 
 ### note: you might want to skip the config-scripts directory, it is unsafe ;)
 

@@ -16,11 +16,12 @@ echo "hello-from-intune: $script" >> $log
 apt-get update
 if [ "$(dpkg -l | awk '/flatpak/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
-else
+fi
+#else
   apt install -y flatpak
   apt install -y gnome-software-plugin-flatpak
   flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   echo "$app successfully installed" >> $log
-fi
+#fi
 echo -e "bye-from-intune\n" >> $log
 

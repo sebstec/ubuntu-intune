@@ -16,8 +16,9 @@ echo "hello-from-intune: $script" >> $log
 apt-get update
 if [ "$(dpkg -l | awk '/gnome-shell-extensions/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
-else
+fi
+#else
   apt-get install -y gnome-shell-extensions gnome-shell-extension-desktop-icons-ng gnome-shell-extension-prefs gnome-shell dconf-editor
   echo "$app successfully installed" >> $log
-fi
+#fi
 echo -e "bye-from-intune\n" >> $log

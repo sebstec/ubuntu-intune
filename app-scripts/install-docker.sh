@@ -15,9 +15,9 @@ echo "hello-from-intune: $script" >> $log
 apt-get update
 if [ "$(dpkg -l | awk '/docker-ce/ {print }'|wc -l)" -ge 1 ]; then
   echo "docker already installed" >> $log
-else
+fi
+#else
   # Add Docker's official GPG key:
-  apt-get update
   apt-get install -y ca-certificates curl
   install -m 0755 -d /etc/apt/keyrings
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -32,7 +32,14 @@ else
   apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
   systemctl enable docker
   echo "docker successfully installed" >> $log
-fi
+  echo "installing rootless mode" >> $log 
+  apt-get install -y dbus-user-session 
+  echo "installed dbus-user-session, relog required!" >> $log
+  apt-get install -y uidmap 
+  apt-get install -y docker-ce-rootless-extras 
+  systemctl disable --now docker.service docker.socket 
+  rm /var/run/docker.sock 
+#fi 
 echo -e "bye-from-intune\n" >> $log
 
 

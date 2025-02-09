@@ -16,18 +16,20 @@ echo "hello-from-intune: $script" >> $log
 apt-get update
 if [ "$(dpkg -l | awk '/mdatp/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
-else
+fi
+#else
   mkdir -p /home/$(id -u -n 1000)/mde
   cd /home/$(id -u -n 1000)/mde
-  wget https://raw.githubusercontent.com/microsoft/mdatp-xplat/refs/heads/master/linux/installation/mde_installer.sh
+  wget https://raw.githubusercontent.com/microsoft/mdatp-xplat/refs/heads/master/linux/installation/mde_installer.sh -O ./mde_installer.sh
   chmod 755 ./mde_installer.sh
-  if [ "$(ls | grep -ic 'MicrosoftDefenderATPOnboardingLinuxServer.py')" -le 0 ]; then
-    echo "put the onboarding python script downloaded from ms defender portal to this directory: $(pwd)!"
+  if [ "$(ls | grep -ic 'MicrosoftDefenderATPOnboardingLinuxServer.py')" -le 0 ]; 
+  then
+    echo "put the onboarding python script downloaded from ms defender portal to this directory: $(pwd)!"  >> $log
   else
-  ./mde_installer.sh --install --channel prod --onboard ./MicrosoftDefenderATPOnboardingLinuxServer.py --tag GROUP Coders --min_req -y
-  mdatp config real-time-protection --value enabled
-  mdatp health --field real_time_protection_enabled
-  echo "$app successfully installed" >> $log
+    ./mde_installer.sh --install --channel prod --onboard ./MicrosoftDefenderATPOnboardingLinuxServer.py --tag GROUP Coders --min_req -y
+    mdatp config real-time-protection --value enabled
+    mdatp health --field real_time_protection_enabled >> $log
+    echo "$app successfully installed" >> $log
   fi
-fi
+#fi
 echo -e "bye-from-intune\n" >> $log

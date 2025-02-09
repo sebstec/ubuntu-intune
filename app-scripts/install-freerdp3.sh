@@ -14,12 +14,13 @@ mkdir -p /home/$(id -u -n 1000)/intune-script-logs
 echo $(date -Iseconds) >> $log
 echo "hello-from-intune: $script" >> $log
 apt-get update
-if [ "$(dpkg -l | awk '/xfreerdp/ {print }'|wc -l)" -ge 1 ]; then
+if [ "$(dpkg -l | awk '/freerdp/ {print }'|wc -l)" -ge 1 ]; then
   echo "$app already installed" >> $log
-else
+fi
+#else
   # only one of them needed
-  flatpak install -y com.freerdp.FreeRDP
+  #flatpak install -y com.freerdp.FreeRDP
   apt install -y freerdp3-x11
   echo "$app successfully installed" >> $log
-fi
+#fi
 echo -e "bye-from-intune\n" >> $log
