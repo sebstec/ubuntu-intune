@@ -1,3 +1,4 @@
+#!/bin/bash
 script=install-$app
 output=intune-script-logs/$script-script-output.txt
 log=/home/$(id -u -n 1000)/$output
